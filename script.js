@@ -53,3 +53,92 @@ const printMessage = () => {
 };
 
 printMessage();
+//------------------------------------------------------------------------------------------------
+
+/*Exercici 1
+Operador ternari bàsic: Escriu una funció potConduir que accepti l'edat com a paràmetre i utilitzi 
+l'operador ternari per determinar si l'usuari pot conduir. Si l'edat és 18 o més, ha de retornar 
+'Pots conduir'. Si no, ha de retornar 'No pots conduir'.*/
+
+const potConduir = (edat) => (edat >= 18 ? "Pots conduir" : "No pots conduir");
+function calculaEdat() {
+  let edat = document.getElementById("edat").value;
+  document.getElementById("resultado3").innerHTML = potConduir(Number(edat));
+}
+
+// Ejemplos en consola
+console.log(potConduir(20)); // Pots conduir
+console.log(potConduir(16)); // No pots conduir
+
+/*Exercici 2
+Ús amb operadors de comparació: Escriu una expressió que utilitzi l'operador ternari per determinar 
+quin dels dos nombres donats (num1 i num2) és més gran. Si num1 és més gran, retorna 'num1 és més gran'. 
+Si no, retorna 'num2 és més gran'.*/
+
+const major = (num1, num2) =>
+  num1 > num2
+    ? num1 + " és més gran"
+    : num1 < num2
+    ? num2 + " és més gran"
+    : "Són iguals";
+
+function compara() {
+  const n1 = Number(document.getElementById("num1").value);
+  const n2 = Number(document.getElementById("num2").value);
+
+  document.getElementById("resultado4").innerText = major(n1, n2);
+}
+
+/*Exercici 3
+Ús enllaçat d'operadors ternaris: Escriu una expressió que utilitzi enllaços d'operadors ternaris per 
+determinar si un número és positiu, negatiu o zero. Operador ternari amb funcions: Crea una funció 
+trobarMaxim que accepti tres paràmetres (a, b, c) i utilitzi l'operador ternari per determinar el 
+valor màxim.*/
+
+// Determinar si un número és positiu, negatiu o zero
+const signeDelNumero = (num) =>
+  num > 0 ? "Positiu" : num < 0 ? "Negatiu" : "Zero";
+
+// Trobar el màxim entre tres números
+const trobarMaxim = (a, b, c) => (a > b ? (a > c ? a : c) : b > c ? b : c);
+
+// Funció per comprovar el signe d'un número
+function comprovaSigne() {
+  const num = Number(document.getElementById("numero").value);
+  document.getElementById("resultadoSigne").innerText = signeDelNumero(num);
+}
+
+// Funció per comprovar el màxim entre tres números
+function comprovaMaxim() {
+  const num1 = Number(document.getElementById("num1").value);
+  const num2 = Number(document.getElementById("num2").value);
+  const num3 = Number(document.getElementById("num3").value);
+  document.getElementById("resultadoMaxim").innerText =
+    "El màxim és: " + trobarMaxim(num1, num2, num3);
+}
+
+/*Exercici 4
+Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array de números i utilitzi
+un bucle per a recórrer l'array. Dins del bucle, utilitza l'operador ternari per a determinar si 
+cada número és parell o imparell.*/
+
+const parOImpar = (array) => {
+  let resultats = "";
+  array.forEach((num) => {
+    const resultat = num % 2 === 0 ? "parell" : "imparell";
+    resultats += `${num} és ${resultat}\n`;
+  });
+  return resultats;
+};
+
+function comprovaParOImpar() {
+  const input = document.getElementById("numeros").value;
+  const arrayNumeros = input
+    .split(",")
+    .map((num) => Number(num.trim()))
+    .filter((n) => !isNaN(n));
+  const resultatFinal = parOImpar(arrayNumeros);
+  document.getElementById("resultado5").innerText = resultatFinal;
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - --
