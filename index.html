@@ -76,6 +76,94 @@
     />
     <p id="resultado5"></p>
 
+    <!--------------------------------------ex3-------------------------------------------------------->
+    <h1>Exercici 1.3: Callbacks</h1>
+
+    <h2>exercici 1 callback basic</h2>
+    <input
+      class="input"
+      type="number"
+      id="nombre"
+      placeholder="introduce numero"
+    />
+    <input
+      class="button"
+      type="button"
+      value="Processar"
+      onclick="processarCallback()"
+    />
+
+    <p id="resultadoCallback"></p>
+
+    <h2>Exercici 2: Callback amb suma</h2>
+    <p>Introdueix dos nombres:</p>
+    <input class="input" type="number" id="nume1" placeholder="Nombre 1" />
+    <input class="input" type="number" id="nume2" placeholder="Nombre 2" />
+    <br />
+    <input
+      class="button"
+      type="button"
+      value="Sumar"
+      onclick="calcularSuma()"
+    />
+
+    <p id="resultadoSuma"></p>
+
+    <h2>Exercici 3: Espera i saluda</h2>
+    <input
+      class="input"
+      type="text"
+      id="nombre2"
+      placeholder="Introduce tu nombre"
+    />
+    <input
+      class="button"
+      type="button"
+      value="Saludar"
+      onclick="iniciarSaludo()"
+    />
+    <p id="resultadoSaludo"></p>
+
+    <h2>Exercici 4: Callbacks amb Arrays</h2>
+
+    <p>Introdueix un array de números (separats per comes):</p>
+    <input
+      class="input"
+      type="text"
+      id="arrayInput"
+      placeholder="Ex: 1, 2, 3, 4"
+    />
+    <input
+      class="input"
+      type="text"
+      id="multiplicador"
+      placeholder="elija un muliplicador"
+    />
+    <input
+      class="button"
+      type="button"
+      value="Processar Elements"
+      onclick="processarEntrada()"
+    />
+    <div id="resultats"></div>
+
+    <h2>Exercici 5: Processar cadena</h2>
+    <input
+      class="input"
+      type="text"
+      id="inputCadena"
+      placeholder="Introdueix una frase"
+    />
+    <input
+      class="button"
+      type="button"
+      value="Processar"
+      onclick="iniciarProcessament()"
+    />
+    <p id="resultatCadena"></p>
+
+    <!--------------------------------------ex4-------------------------------------------------------->
+
     <script src="script.js"></script>
   </body>
 </html>

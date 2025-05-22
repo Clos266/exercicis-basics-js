@@ -142,3 +142,139 @@ function comprovaParOImpar() {
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - --
+
+/*Exercici 1
+Callback bàsic: Escriu una funció anomenada processar que accepti dos paràmetres: un nombre i una funció 
+de callback. La funció processar ha d'invocar la funció de callback, passant el nombre com a paràmetre.*/
+
+// Funció processar
+function processar(nombre, callback) {
+  callback(nombre);
+}
+
+// Callback que mostra el doble
+const mostrarDoble = (n) => {
+  document.getElementById(
+    "resultadoCallback"
+  ).innerText = `El doble de ${n} és ${n * 2}`;
+};
+
+// Crida des del botó
+function processarCallback() {
+  const valor = Number(document.getElementById("nombre").value);
+  processar(valor, mostrarDoble);
+}
+
+/*Exercici 2
+Callbacks amb operacions matemàtiques: Escriu una funció calculadora que accepti tres paràmetres: 
+dos nombres i una funció de callback. La funció calculadora ha d'invocar la funció de callback
+amb els dos nombres com a paràmetres. Després, crida calculadora amb una funció que faci la 
+suma dels dos nombres.*/
+
+function calculadora(a, b, callback) {
+  return callback(a, b);
+}
+
+const sumar = (x, y) => x + y;
+
+function calcularSuma() {
+  const a = Number(document.getElementById("nume1").value);
+  const b = Number(document.getElementById("nume2").value);
+  const resultatSuma = calculadora(a, b, sumar);
+  document.getElementById(
+    "resultadoSuma"
+  ).innerText = `Resultat: ${resultatSuma}`;
+}
+
+/*Exercici 3
+Ús de callbacks en funcions asíncrones: Escriu una funció esperarISaludar que accepti dos paràmetres: 
+un nom i una funció de callback. La funció ha d'esperar 2 segons i llavors invocar la funció de callback,
+passant el nom com a paràmetre.*/
+// Función que espera 2 segundos y luego invoca el callback
+function esperarISaludar(nombre, callback) {
+  setTimeout(() => {
+    callback(nombre); // Llamamos al callback pasando el nombre
+  }, 2000); // Espera 2 segundos (2000 ms)
+}
+
+// Función que será el callback
+function saludar(nombre) {
+  console.log(`Hola, ${nombre}!`);
+  document.getElementById("resultadoSaludo").innerText = `Hola, ${nombre}!`;
+}
+
+// Función que inicia el saludo, se llama desde HTML al hacer clic en el botón
+function iniciarSaludo() {
+  const nombre = document.getElementById("nombre2").value;
+  esperarISaludar(nombre, saludar); // Llama a la función esperarISaludar con el nombre y la función de saludo
+}
+
+/*Exercici 4
+Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una 
+funció de callback. La funció processarElements ha d'invocar la funció de callback per cada element de 
+l'array.*/
+
+// Funció que processa els elements de l'array i crida el callback per cada element
+function processarElements(array, callback) {
+  const resultats = [];
+  array.forEach((element) => {
+    resultats.push(callback(element)); // Aplica el callback per cada element
+  });
+  return resultats;
+}
+
+// Funció callback per multiplicar els números pel valor del multiplicador
+function multiplicarTodos(num, multiplicador) {
+  return num * multiplicador;
+}
+
+// Funció per gestionar l'entrada de l'usuari
+function processarEntrada() {
+  const input = document.getElementById("arrayInput").value;
+  const multiplicador = Number(document.getElementById("multiplicador").value); // Obtenim el multiplicador
+
+  if (isNaN(multiplicador)) {
+    document.getElementById(
+      "resultats"
+    ).innerHTML = `<p>Per favor, introdueix un valor vàlid per al multiplicador.</p>`;
+    return;
+  }
+
+  const array = input.split(",").map((num) => Number(num.trim())); // Convierteix l'entrada a un array de números
+
+  // Crida la funció processarElements amb l'array i el callback
+  const resultats = processarElements(array, (num) =>
+    multiplicarTodos(num, multiplicador)
+  );
+
+  // Mostra els resultats a la pàgina web
+  document.getElementById("resultats").innerHTML = `
+    <p>Array original: [${array.join(", ")}]</p>
+    <p>Resultat després de multiplicar tots per ${multiplicador}: [${resultats.join(
+    ", "
+  )}]</p>
+  `;
+}
+
+/*Exercici 5
+Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de 
+callback. La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció 
+de callback amb la cadena transformada.*/
+
+function processarCadena(cadena, callback) {
+  const majuscules = cadena.toUpperCase();
+  callback(majuscules);
+}
+
+// Exemple de callback que mostra la cadena
+function mostrarCadena(resultat) {
+  document.getElementById("resultatCadena").innerText = `Resultat: ${resultat}`;
+}
+
+// Funció que s'executa en clicar el botó
+function iniciarProcessament() {
+  const inputCadena = document.getElementById("inputCadena").value;
+  processarCadena(inputCadena, mostrarCadena);
+}
+
+//- - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - -
