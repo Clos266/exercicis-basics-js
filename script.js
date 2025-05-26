@@ -278,3 +278,109 @@ function iniciarProcessament() {
 }
 
 //- - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - -
+
+/*Exercici 1
+Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el quadrat de cada número.*/
+function calculaQuadrats() {
+  const input = document.getElementById("inputNumeros").value;
+  const arrayNumeros = input.split(",").map((num) => Number(num.trim()));
+  const quadrats = arrayNumeros.map((num) => num * num);
+
+  document.getElementById(
+    "resultatQuadrats"
+  ).innerText = `Resultat: [${quadrats.join(", ")}]`;
+}
+
+/*Exercici 2
+Filter: Teniu una array de números [1, 2, 3, 4]. Crea una nova array que només contingui els números parells.*/
+
+function filtrarParells() {
+  const input = document.getElementById("inputFilter").value;
+  const arrayNumeros = input.split(",").map((num) => Number(num.trim()));
+  const parells = arrayNumeros.filter((num) => num % 2 === 0);
+
+  document.getElementById(
+    "resultatFilter"
+  ).innerText = `Números parells: [${parells.join(", ")}]`;
+}
+
+/*Exercici 3
+Find: Teniu una array de números [1, 10 , 8, 11]. Utilitza la funció find per a trobar el primer 
+número que és major a 10.*/
+
+function trobarMajor() {
+  const input = document.getElementById("inputFind").value;
+  const array = input.split(",").map((num) => Number(num.trim()));
+  const resultat = array.find((num) => num > 10);
+
+  document.getElementById("resultatFind").innerText =
+    resultat !== undefined
+      ? `El primer número major a 10 és: ${resultat}`
+      : `No hi ha cap número major a 10.`;
+}
+
+/*Reduce: Teniu una array de números [13, 7, 8, 21]. Fes servir la funció reduce per a calcular 
+la suma total dels números.*/
+
+function calcularSumaTotal() {
+  const input = document.getElementById("inputReduce").value;
+  const array = input.split(",").map((num) => Number(num.trim()));
+
+  const suma = array.reduce((acc, curr) => acc + curr, 0);
+
+  document.getElementById(
+    "resultatReduce"
+  ).innerText = `La suma total és: ${suma}`;
+}
+
+/*Exercici 5
+Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el següent:
+
+- Filtra els nombres majors o iguals a 10.
+
+- Multiplica cada nombre filtrat per 2.
+
+- Calcula la suma dels nombres filtrats i multiplicats per 2.
+
+- La funció ha de retornar el resultat de la suma.*/
+
+function calcul5() {
+  const array = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
+
+  // Paso 1: Filtrar números mayores o iguales a 10
+  const filtrados = array.filter((num) => num >= 10);
+
+  // Paso 2: Multiplicar los números por 2
+  const multiplicados = filtrados.map((num) => num * 2);
+
+  // Paso 3: Reducir (sumar) los números multiplicados
+  setTimeout(() => {
+    const resultado = multiplicados.reduce((acc, num) => acc + num, 0);
+
+    // Mostrar el resultado al HTML
+    document.getElementById(
+      "resultado"
+    ).innerText = `El resultat de la suma és: ${resultado}`;
+  }, 0); // Esto permite que el navegador maneje el evento de clic y luego ejecute la suma.
+}
+
+function fusionarObjectes() {
+  // Objecte 1: Informació personal
+  const persona = {
+    nom: document.getElementById("nom6").value,
+    edat: Number(document.getElementById("edat6").value),
+  };
+
+  // Objecte 2: Informació de localització
+  const localitzacio = {
+    ciutat: document.getElementById("ciutat6").value,
+  };
+
+  // Fusionem amb spread
+  const objecteFusionat = { ...persona, ...localitzacio };
+
+  // Mostrem el resultat
+  document.getElementById(
+    "resultatObjecte"
+  ).textContent = `${objecteFusionat.nom}, de ${objecteFusionat.edat} anys, viu a ${objecteFusionat.ciutat}`;
+}

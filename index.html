@@ -164,6 +164,84 @@
 
     <!--------------------------------------ex4-------------------------------------------------------->
 
+    <h1>Exercici 1.4: Rest & Spread operators</h1>
+
+    <h2>Exercici 1: Quadrats amb map()</h2>
+    <p>Introdueix números separats per comes (ex: 1,2,3,4):</p>
+    <input
+      class="input"
+      type="text"
+      id="inputNumeros"
+      placeholder="Ex: 1,2,3,4"
+    />
+    <input
+      class="button"
+      type="button"
+      value="Calcula quadrats"
+      onclick="calculaQuadrats()"
+    />
+    <p id="resultatQuadrats"></p>
+
+    <h2>Exercici 2: Filter - Números parells</h2>
+    <p>Introdueix números separats per comes (ex: 1,2,3,4):</p>
+    <input
+      class="input"
+      type="text"
+      id="inputFilter"
+      placeholder="Ex: 1,2,3,4"
+    />
+    <input
+      class="button"
+      type="button"
+      value="Filtrar parells"
+      onclick="filtrarParells()"
+    />
+    <p id="resultatFilter"></p>
+
+    <h2>Exercici 3: Troba el primer número major a 10</h2>
+    <p>Introdueix una llista de números separats per comes:</p>
+    <input
+      class="input"
+      type="text"
+      id="inputFind"
+      placeholder="Ex: 1,10,8,11"
+    />
+    <button class="button" onclick="trobarMajor()">Trobar</button>
+    <p id="resultatFind"></p>
+
+    <h2>Exercici Reduce: Suma total</h2>
+    <p>Introdueix una llista de números separats per comes:</p>
+    <input
+      class="input"
+      type="text"
+      id="inputReduce"
+      placeholder="Ex: 13,7,8,21"
+    />
+    <button class="button" onclick="calcularSumaTotal()">Calcular suma</button>
+    <p id="resultatReduce"></p>
+
+    <h2>Exercici 5: Filtrar, Multiplicar i Sumar</h2>
+
+    <p>
+      Fes clic per realitzar el càlcul amb l'array: [1, 3, 7, 10, 15, 17, 11, 5,
+      8, 12, 9]
+    </p>
+    <button class="button" onclick="calcul5()">Realitzar Càlcul</button>
+
+    <p id="resultado"></p>
+
+    <h2>Exercici 6: Fusionar Objectes amb Spread</h2>
+
+    <input class="input" type="text" id="nom6" placeholder="Nom" />
+    <input class="input" type="number" id="edat6" placeholder="Edat" />
+    <input class="input" type="text" id="ciutat6" placeholder="Ciutat" />
+
+    <button class="button" onclick="fusionarObjectes()">Fusionar</button>
+
+    <pre id="resultatObjecte"></pre>
+
+    <!-----------------------ex5----------------------->
+
     <script src="script.js"></script>
   </body>
 </html>
