@@ -1,22 +1,9 @@
-/*Exercici 1
-Conversió de funcions: Tens una funció add que accepta dos paràmetres i retorna la seva suma. 
-Converteix-la en una funció de fletxa. Per exemple: function add(a, b) {return a + b;}.*/
-
 let add = (a, b) => a + b;
 document.getElementById("resultado1").textContent = add(3, 5);
-
-/* Exercici 1
-Funció de fletxa sense paràmetres: Crea una funció de fletxa anomenada randomNumber que no necessiti 
-paràmetres i que retorni un número aleatori entre 0 i 100.*/
 
 let randomNumber = () => Math.floor(Math.random() * 101);
 
 document.getElementById("resultado2").innerHTML = randomNumber();
-
-/*Exercici 1
-Ús de 'this' en les funcions de fletxa: Crea una classe person que tingui una propietat name i 
-una funció greet que utilitzi una funció de fletxa. La funció ha d'imprimir una salutació 
-que inclogui el nom de la persona. Per exemple: console.log(Hola, ${this.name})*/
 
 class Person {
   constructor(name) {
@@ -29,36 +16,21 @@ class Person {
 const person = new Person("Manu");
 person.greet();
 
-/*Exercici 1
-Funció de fletxa dins d'un loop: Crea una funció anomenada printNumbers que accepti un array de números i 
-utilitzi un loop for per imprimir cada número a la consola utilitzant una funció de fletxa.*/
-
 function printNumbers(arr) {
   for (let i = 0; i < arr.length; i++) {
-    // Función de flecha dentro del bucle
     const print = () => console.log(arr[i]);
     print();
   }
 }
 printNumbers([1, 2, 3, 4, 5]);
 
-/*Exercici 1
-Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge 
-a la consola després d'esperar 3 segons.*/
-
 const printMessage = () => {
   setTimeout(() => {
     console.log("Han passat 3 segons!");
-  }, 3000); // 3000 milisegons = 3 segons
+  }, 3000);
 };
 
 printMessage();
-//------------------------------------------------------------------------------------------------
-
-/*Exercici 1
-Operador ternari bàsic: Escriu una funció potConduir que accepti l'edat com a paràmetre i utilitzi 
-l'operador ternari per determinar si l'usuari pot conduir. Si l'edat és 18 o més, ha de retornar 
-'Pots conduir'. Si no, ha de retornar 'No pots conduir'.*/
 
 const potConduir = (edat) => (edat >= 18 ? "Pots conduir" : "No pots conduir");
 function calculaEdat() {
@@ -66,14 +38,8 @@ function calculaEdat() {
   document.getElementById("resultado3").innerHTML = potConduir(Number(edat));
 }
 
-// Ejemplos en consola
-console.log(potConduir(20)); // Pots conduir
-console.log(potConduir(16)); // No pots conduir
-
-/*Exercici 2
-Ús amb operadors de comparació: Escriu una expressió que utilitzi l'operador ternari per determinar 
-quin dels dos nombres donats (num1 i num2) és més gran. Si num1 és més gran, retorna 'num1 és més gran'. 
-Si no, retorna 'num2 és més gran'.*/
+console.log(potConduir(20));
+console.log(potConduir(16));
 
 const major = (num1, num2) =>
   num1 > num2
@@ -89,26 +55,16 @@ function compara() {
   document.getElementById("resultado4").innerText = major(n1, n2);
 }
 
-/*Exercici 3
-Ús enllaçat d'operadors ternaris: Escriu una expressió que utilitzi enllaços d'operadors ternaris per 
-determinar si un número és positiu, negatiu o zero. Operador ternari amb funcions: Crea una funció 
-trobarMaxim que accepti tres paràmetres (a, b, c) i utilitzi l'operador ternari per determinar el 
-valor màxim.*/
-
-// Determinar si un número és positiu, negatiu o zero
 const signeDelNumero = (num) =>
   num > 0 ? "Positiu" : num < 0 ? "Negatiu" : "Zero";
 
-// Trobar el màxim entre tres números
 const trobarMaxim = (a, b, c) => (a > b ? (a > c ? a : c) : b > c ? b : c);
 
-// Funció per comprovar el signe d'un número
 function comprovaSigne() {
   const num = Number(document.getElementById("numero").value);
   document.getElementById("resultadoSigne").innerText = signeDelNumero(num);
 }
 
-// Funció per comprovar el màxim entre tres números
 function comprovaMaxim() {
   const num1 = Number(document.getElementById("num1").value);
   const num2 = Number(document.getElementById("num2").value);
@@ -116,11 +72,6 @@ function comprovaMaxim() {
   document.getElementById("resultadoMaxim").innerText =
     "El màxim és: " + trobarMaxim(num1, num2, num3);
 }
-
-/*Exercici 4
-Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array de números i utilitzi
-un bucle per a recórrer l'array. Dins del bucle, utilitza l'operador ternari per a determinar si 
-cada número és parell o imparell.*/
 
 const parOImpar = (array) => {
   let resultats = "";
@@ -141,35 +92,19 @@ function comprovaParOImpar() {
   document.getElementById("resultado5").innerText = resultatFinal;
 }
 
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - --
-
-/*Exercici 1
-Callback bàsic: Escriu una funció anomenada processar que accepti dos paràmetres: un nombre i una funció 
-de callback. La funció processar ha d'invocar la funció de callback, passant el nombre com a paràmetre.*/
-
-// Funció processar
 function processar(nombre, callback) {
   callback(nombre);
 }
 
-// Callback que mostra el doble
 const mostrarDoble = (n) => {
   document.getElementById(
     "resultadoCallback"
   ).innerText = `El doble de ${n} és ${n * 2}`;
 };
-
-// Crida des del botó
 function processarCallback() {
   const valor = Number(document.getElementById("nombre").value);
   processar(valor, mostrarDoble);
 }
-
-/*Exercici 2
-Callbacks amb operacions matemàtiques: Escriu una funció calculadora que accepti tres paràmetres: 
-dos nombres i una funció de callback. La funció calculadora ha d'invocar la funció de callback
-amb els dos nombres com a paràmetres. Després, crida calculadora amb una funció que faci la 
-suma dels dos nombres.*/
 
 function calculadora(a, b, callback) {
   return callback(a, b);
@@ -186,52 +121,37 @@ function calcularSuma() {
   ).innerText = `Resultat: ${resultatSuma}`;
 }
 
-/*Exercici 3
-Ús de callbacks en funcions asíncrones: Escriu una funció esperarISaludar que accepti dos paràmetres: 
-un nom i una funció de callback. La funció ha d'esperar 2 segons i llavors invocar la funció de callback,
-passant el nom com a paràmetre.*/
-// Función que espera 2 segundos y luego invoca el callback
 function esperarISaludar(nombre, callback) {
   setTimeout(() => {
-    callback(nombre); // Llamamos al callback pasando el nombre
-  }, 2000); // Espera 2 segundos (2000 ms)
+    callback(nombre);
+  }, 2000);
 }
 
-// Función que será el callback
 function saludar(nombre) {
   console.log(`Hola, ${nombre}!`);
   document.getElementById("resultadoSaludo").innerText = `Hola, ${nombre}!`;
 }
 
-// Función que inicia el saludo, se llama desde HTML al hacer clic en el botón
 function iniciarSaludo() {
   const nombre = document.getElementById("nombre2").value;
-  esperarISaludar(nombre, saludar); // Llama a la función esperarISaludar con el nombre y la función de saludo
+  esperarISaludar(nombre, saludar);
 }
 
-/*Exercici 4
-Callbacks amb arrays: Escriu una funció processarElements que accepti dos paràmetres: un array i una 
-funció de callback. La funció processarElements ha d'invocar la funció de callback per cada element de 
-l'array.*/
-
-// Funció que processa els elements de l'array i crida el callback per cada element
 function processarElements(array, callback) {
   const resultats = [];
   array.forEach((element) => {
-    resultats.push(callback(element)); // Aplica el callback per cada element
+    resultats.push(callback(element));
   });
   return resultats;
 }
 
-// Funció callback per multiplicar els números pel valor del multiplicador
 function multiplicarTodos(num, multiplicador) {
   return num * multiplicador;
 }
 
-// Funció per gestionar l'entrada de l'usuari
 function processarEntrada() {
   const input = document.getElementById("arrayInput").value;
-  const multiplicador = Number(document.getElementById("multiplicador").value); // Obtenim el multiplicador
+  const multiplicador = Number(document.getElementById("multiplicador").value);
 
   if (isNaN(multiplicador)) {
     document.getElementById(
@@ -240,14 +160,11 @@ function processarEntrada() {
     return;
   }
 
-  const array = input.split(",").map((num) => Number(num.trim())); // Convierteix l'entrada a un array de números
-
-  // Crida la funció processarElements amb l'array i el callback
+  const array = input.split(",").map((num) => Number(num.trim()));
   const resultats = processarElements(array, (num) =>
     multiplicarTodos(num, multiplicador)
   );
 
-  // Mostra els resultats a la pàgina web
   document.getElementById("resultats").innerHTML = `
     <p>Array original: [${array.join(", ")}]</p>
     <p>Resultat després de multiplicar tots per ${multiplicador}: [${resultats.join(
@@ -256,31 +173,20 @@ function processarEntrada() {
   `;
 }
 
-/*Exercici 5
-Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de 
-callback. La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció 
-de callback amb la cadena transformada.*/
-
 function processarCadena(cadena, callback) {
   const majuscules = cadena.toUpperCase();
   callback(majuscules);
 }
 
-// Exemple de callback que mostra la cadena
 function mostrarCadena(resultat) {
   document.getElementById("resultatCadena").innerText = `Resultat: ${resultat}`;
 }
 
-// Funció que s'executa en clicar el botó
 function iniciarProcessament() {
   const inputCadena = document.getElementById("inputCadena").value;
   processarCadena(inputCadena, mostrarCadena);
 }
 
-//- - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - - -- - - - - - - - - - -
-
-/*Exercici 1
-Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el quadrat de cada número.*/
 function calculaQuadrats() {
   const input = document.getElementById("inputNumeros").value;
   const arrayNumeros = input.split(",").map((num) => Number(num.trim()));
@@ -291,9 +197,6 @@ function calculaQuadrats() {
   ).innerText = `Resultat: [${quadrats.join(", ")}]`;
 }
 
-/*Exercici 2
-Filter: Teniu una array de números [1, 2, 3, 4]. Crea una nova array que només contingui els números parells.*/
-
 function filtrarParells() {
   const input = document.getElementById("inputFilter").value;
   const arrayNumeros = input.split(",").map((num) => Number(num.trim()));
@@ -303,10 +206,6 @@ function filtrarParells() {
     "resultatFilter"
   ).innerText = `Números parells: [${parells.join(", ")}]`;
 }
-
-/*Exercici 3
-Find: Teniu una array de números [1, 10 , 8, 11]. Utilitza la funció find per a trobar el primer 
-número que és major a 10.*/
 
 function trobarMajor() {
   const input = document.getElementById("inputFind").value;
@@ -319,9 +218,6 @@ function trobarMajor() {
       : `No hi ha cap número major a 10.`;
 }
 
-/*Reduce: Teniu una array de números [13, 7, 8, 21]. Fes servir la funció reduce per a calcular 
-la suma total dels números.*/
-
 function calcularSumaTotal() {
   const input = document.getElementById("inputReduce").value;
   const array = input.split(",").map((num) => Number(num.trim()));
@@ -333,68 +229,42 @@ function calcularSumaTotal() {
   ).innerText = `La suma total és: ${suma}`;
 }
 
-/*Exercici 5
-Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el següent:
-
-- Filtra els nombres majors o iguals a 10.
-
-- Multiplica cada nombre filtrat per 2.
-
-- Calcula la suma dels nombres filtrats i multiplicats per 2.
-
-- La funció ha de retornar el resultat de la suma.*/
-
 function calcul5() {
   const array = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
 
-  // Paso 1: Filtrar números mayores o iguales a 10
   const filtrados = array.filter((num) => num >= 10);
 
-  // Paso 2: Multiplicar los números por 2
   const multiplicados = filtrados.map((num) => num * 2);
 
-  // Paso 3: Reducir (sumar) los números multiplicados
   setTimeout(() => {
     const resultado = multiplicados.reduce((acc, num) => acc + num, 0);
 
-    // Mostrar el resultado al HTML
     document.getElementById(
       "resultado"
     ).innerText = `El resultat de la suma és: ${resultado}`;
-  }, 0); // Esto permite que el navegador maneje el evento de clic y luego ejecute la suma.
+  }, 0);
 }
 
 function fusionarObjectes() {
-  // Objecte 1: Informació personal
   const persona = {
     nom: document.getElementById("nom6").value,
     edat: Number(document.getElementById("edat6").value),
   };
 
-  // Objecte 2: Informació de localització
   const localitzacio = {
     ciutat: document.getElementById("ciutat6").value,
   };
 
-  // Fusionem amb spread
   const objecteFusionat = { ...persona, ...localitzacio };
 
-  // Mostrem el resultat
   document.getElementById(
     "resultatObjecte"
   ).textContent = `${objecteFusionat.nom}, de ${objecteFusionat.edat} anys, viu a ${objecteFusionat.ciutat}`;
 }
-/*Exercici 1
-Map: Teniu un array de números [1, 2, 3, 4]. 
-Crea una nova array que contingui el quadrat de cada número.*/
 
 const numbers = [4, 9, 16, 25];
 const squared = numbers.map((n) => n ** 2);
 console.log(squared.join(", "));
-
-/* Exercici 2
-Filter: Teniu una array de números [1, 2, 3, 4]. 
-Crea una nova array que només contingui els números parells.*/
 
 const numbers2 = [1, 2, 3, 4];
 
@@ -404,10 +274,6 @@ function isEven(num) {
   return num % 2 === 0;
 }
 
-/*Exercici 3
-Find: Teniu una array de números [1, 10 , 8, 11]. 
-Utilitza la funció find per a trobar el primer número que és major a 10.*/
-
 const numo = [1, 10, 8, 11];
 
 console.log(numo.filter(checkmasdiez));
@@ -416,27 +282,12 @@ function checkmasdiez(numo) {
   return numo >= 10;
 }
 
-/*Exercici 4
-Reduce: Teniu una array de números [13, 7, 8, 21].
-Fes servir la funció reduce per a calcular la suma total dels números.*/
-
 const numeroz = [13, 7, 8, 21];
 console.log(numeroz.reduce(myFunc));
 
 function myFunc(total, num) {
   return total + num;
 }
-/*
-Exercici 5
-Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el següent:
-
-- Filtra els nombres majors o iguals a 10.
-
-- Multiplica cada nombre filtrat per 2.
-
-- Calcula la suma dels nombres filtrats i multiplicats per 2.
-
-- La funció ha de retornar el resultat de la suma.*/
 
 const arraygordo = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
 
@@ -447,24 +298,13 @@ console.log(
     .reduce((a, b) => a + b, 0)
 );
 
-/*Exercici 6: Every / Some: Usa every i some per a determinar si tots o
-alguns dels elements de l'array [11, 12, 13, 14] són majors que 10, respectivament*/
-
 const ages = [11, 12, 13, 14];
 
 function checkAge(age) {
   return age > 10;
 }
-//every
 console.log("Is every element over 10? " + ages.every(checkAge));
-//some
 console.log(ages.some(checkAge));
-
-//- - - - - -  - - -  -- -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-/*Exercici 1
-forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: 
-let noms = ['Anna', 'Bernat', 'Clara']; */
 
 let noms = ["Anna", "Bernat", "Clara"];
 
@@ -472,19 +312,11 @@ noms.forEach((item) => {
   console.log(item);
 });
 
-/* Exercici 2
-for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom a la consola: 
-let noms = ['Anna', 'Bernat', 'Clara'];*/
-
 let text = "";
 for (let x of noms) {
   text += x + " ";
 }
 console.log(text);
-
-/* Exercici 3
-filter: Teniu una array de números. Utilitza filter per a crear una nova array que només contingui 
-els números parells. let numeros = [1, 2, 3, 4, 5, 6];*/
 
 const numerosfi = [1, 2, 3, 4, 5, 6];
 
@@ -493,13 +325,6 @@ console.log(numerosfi.filter(checkPar));
 function checkPar(par) {
   return par % 2 === 0;
 }
-
-/*Nivell 2
-
-
-Exercici 4
-for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25, ciutat: 'Barcelona' }; 
-Utilitza un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.*/
 
 let obj = { nom: "Ona", edat: "25", ciutat: "Barcelona" };
 
@@ -510,10 +335,6 @@ for (let x in obj) {
 }
 console.log(text4);
 
-/*Exercici 5
-for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir a la consola 
-els números fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];*/
-
 let numeros = [1, 2, 3, 4, 5, 6];
 
 for (let numero of numeros) {
@@ -521,38 +342,21 @@ for (let numero of numeros) {
   if (numero === 5) break;
 }
 
-/*Nivell 3
-Exercici 6
-for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element de l'array i la 
-seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']*/
-
 let noms6 = ["Anna", "Bernat", "Clara"];
 
 for (const [index, nom] of noms6.entries()) {
   console.log(`${index}: ${nom}`);
 }
 
-//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -
-
-/*Exercici 1
-Creació d'una Promesa: Crea una promesa que es resolgui 
-després de 2 segons i que retorni la cadena de text 'Hola, món'.*/
-
 const myPromise = new Promise(function (myResolve, myReject) {
   setTimeout(function () {
     myResolve("hola, mon(2sec)");
   }, 2000);
 });
-/*Exercici 2
-Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. 
-Crea un .then que imprimeixi el resultat a la consola.*/
+
 myPromise.then(function (value) {
   console.log(value);
 });
-
-/*Exercici 3
-Promesa amb reject: Crea una promesa que es resolgui després de 2 segons si
-l'input és igual a 'Hola', i que la rebutgi si l'input és qualsevol altra cosa.*/
 
 function myDisplayer(some) {
   document.getElementById("demo").innerHTML = some;
@@ -583,11 +387,6 @@ function verificar() {
   }, 2000);
 }
 
-/*Exercici 4
-Ús de async/await: Escriu una funció asíncrona que utilitzi la 
-funció await per a esperar el resultat de la promesa creada a l'exercici 1,
-i que després imprimeixi aquest resultat a la consola.*/
-
 async function myDisplay() {
   let myPromise = new Promise(function (resolve) {
     setTimeout(function () {
@@ -598,10 +397,6 @@ async function myDisplay() {
 }
 
 myDisplay();
-
-/*Exercici 5
-Gestió d'errors amb async/await: Modifica la funció 
-de l'exercici 4 per a que capturi qualsevol possible error utilitzant un bloc try/catch.*/
 
 async function myDisplay2() {
   try {
@@ -617,22 +412,13 @@ async function myDisplay2() {
 }
 myDisplay2();
 
-/*Exercici 6
-Promise.all: Crea dues promeses que es resolguin després de 2 i 3 segons, respectivament. 
-Utilitza Promise.all per a esperar que ambdues promeses es resolguin, i imprimeix 
-els resultats a la consola. */
-
-// Create a Promise
 const myPromise1 = new Promise((resolve) => {
   setTimeout(resolve, 2000, "promesa 1, 2 sec");
 });
-
-// Create another Promise
 const myPromise2 = new Promise((resolve) => {
   setTimeout(resolve, 3000, "promesa 2, 3 sec");
 });
 
-// Both resolves. Who is faster?
 Promise.all([myPromise1, myPromise2]).then((promesas) => {
   console.log("promesas:");
   console.log(promesas[0]);
