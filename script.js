@@ -384,3 +384,257 @@ function fusionarObjectes() {
     "resultatObjecte"
   ).textContent = `${objecteFusionat.nom}, de ${objecteFusionat.edat} anys, viu a ${objecteFusionat.ciutat}`;
 }
+/*Exercici 1
+Map: Teniu un array de números [1, 2, 3, 4]. 
+Crea una nova array que contingui el quadrat de cada número.*/
+
+const numbers = [4, 9, 16, 25];
+const squared = numbers.map((n) => n ** 2);
+console.log(squared.join(", "));
+
+/* Exercici 2
+Filter: Teniu una array de números [1, 2, 3, 4]. 
+Crea una nova array que només contingui els números parells.*/
+
+const numbers2 = [1, 2, 3, 4];
+
+console.log(numbers2.filter(isEven));
+
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+/*Exercici 3
+Find: Teniu una array de números [1, 10 , 8, 11]. 
+Utilitza la funció find per a trobar el primer número que és major a 10.*/
+
+const numo = [1, 10, 8, 11];
+
+console.log(numo.filter(checkmasdiez));
+
+function checkmasdiez(numo) {
+  return numo >= 10;
+}
+
+/*Exercici 4
+Reduce: Teniu una array de números [13, 7, 8, 21].
+Fes servir la funció reduce per a calcular la suma total dels números.*/
+
+const numeroz = [13, 7, 8, 21];
+console.log(numeroz.reduce(myFunc));
+
+function myFunc(total, num) {
+  return total + num;
+}
+/*
+Exercici 5
+Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el següent:
+
+- Filtra els nombres majors o iguals a 10.
+
+- Multiplica cada nombre filtrat per 2.
+
+- Calcula la suma dels nombres filtrats i multiplicats per 2.
+
+- La funció ha de retornar el resultat de la suma.*/
+
+const arraygordo = [1, 3, 7, 10, 15, 17, 11, 5, 8, 12, 9];
+
+console.log(
+  arraygordo
+    .filter((n) => n >= 10)
+    .map((n) => n * 2)
+    .reduce((a, b) => a + b, 0)
+);
+
+/*Exercici 6: Every / Some: Usa every i some per a determinar si tots o
+alguns dels elements de l'array [11, 12, 13, 14] són majors que 10, respectivament*/
+
+const ages = [11, 12, 13, 14];
+
+function checkAge(age) {
+  return age > 10;
+}
+//every
+console.log("Is every element over 10? " + ages.every(checkAge));
+//some
+console.log(ages.some(checkAge));
+
+//- - - - - -  - - -  -- -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/*Exercici 1
+forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: 
+let noms = ['Anna', 'Bernat', 'Clara']; */
+
+let noms = ["Anna", "Bernat", "Clara"];
+
+noms.forEach((item) => {
+  console.log(item);
+});
+
+/* Exercici 2
+for-of: Teniu una array de noms. Utilitza un bucle for-of per a imprimir cada nom a la consola: 
+let noms = ['Anna', 'Bernat', 'Clara'];*/
+
+let text = "";
+for (let x of noms) {
+  text += x + " ";
+}
+console.log(text);
+
+/* Exercici 3
+filter: Teniu una array de números. Utilitza filter per a crear una nova array que només contingui 
+els números parells. let numeros = [1, 2, 3, 4, 5, 6];*/
+
+const numerosfi = [1, 2, 3, 4, 5, 6];
+
+console.log(numerosfi.filter(checkPar));
+
+function checkPar(par) {
+  return par % 2 === 0;
+}
+
+/*Nivell 2
+
+
+Exercici 4
+for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25, ciutat: 'Barcelona' }; 
+Utilitza un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.*/
+
+let obj = { nom: "Ona", edat: "25", ciutat: "Barcelona" };
+
+let text4 = "";
+
+for (let x in obj) {
+  text4 += obj[x] + " ";
+}
+console.log(text4);
+
+/*Exercici 5
+for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir a la consola 
+els números fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];*/
+
+let numeros = [1, 2, 3, 4, 5, 6];
+
+for (let numero of numeros) {
+  console.log(numero);
+  if (numero === 5) break;
+}
+
+/*Nivell 3
+Exercici 6
+for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element de l'array i la 
+seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']*/
+
+let noms6 = ["Anna", "Bernat", "Clara"];
+
+for (const [index, nom] of noms6.entries()) {
+  console.log(`${index}: ${nom}`);
+}
+
+//- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -
+
+/*Exercici 1
+Creació d'una Promesa: Crea una promesa que es resolgui 
+després de 2 segons i que retorni la cadena de text 'Hola, món'.*/
+
+const myPromise = new Promise(function (myResolve, myReject) {
+  setTimeout(function () {
+    myResolve("hola, mon(2sec)");
+  }, 2000);
+});
+/*Exercici 2
+Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. 
+Crea un .then que imprimeixi el resultat a la consola.*/
+myPromise.then(function (value) {
+  console.log(value);
+});
+
+/*Exercici 3
+Promesa amb reject: Crea una promesa que es resolgui després de 2 segons si
+l'input és igual a 'Hola', i que la rebutgi si l'input és qualsevol altra cosa.*/
+
+function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function verificar() {
+  myDisplayer("Verificando...");
+
+  setTimeout(() => {
+    let myPromise = new Promise(function (myResolve, myReject) {
+      let x = document.getElementById("supri").value;
+
+      if (x === "hola") {
+        myResolve("OK");
+      } else {
+        myReject("Error");
+      }
+    });
+
+    myPromise.then(
+      function (value) {
+        myDisplayer(value);
+      },
+      function (error) {
+        myDisplayer(error);
+      }
+    );
+  }, 2000);
+}
+
+/*Exercici 4
+Ús de async/await: Escriu una funció asíncrona que utilitzi la 
+funció await per a esperar el resultat de la promesa creada a l'exercici 1,
+i que després imprimeixi aquest resultat a la consola.*/
+
+async function myDisplay() {
+  let myPromise = new Promise(function (resolve) {
+    setTimeout(function () {
+      resolve("holi mon 2sec!!");
+    }, 2000);
+  });
+  console.log(await myPromise);
+}
+
+myDisplay();
+
+/*Exercici 5
+Gestió d'errors amb async/await: Modifica la funció 
+de l'exercici 4 per a que capturi qualsevol possible error utilitzant un bloc try/catch.*/
+
+async function myDisplay2() {
+  try {
+    let myPromise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        reject("error forzado");
+      }, 2000);
+    });
+    console.log(await myPromise);
+  } catch (err) {
+    console.log("error fatal!!!!" + err);
+  }
+}
+myDisplay2();
+
+/*Exercici 6
+Promise.all: Crea dues promeses que es resolguin després de 2 i 3 segons, respectivament. 
+Utilitza Promise.all per a esperar que ambdues promeses es resolguin, i imprimeix 
+els resultats a la consola. */
+
+// Create a Promise
+const myPromise1 = new Promise((resolve) => {
+  setTimeout(resolve, 2000, "promesa 1, 2 sec");
+});
+
+// Create another Promise
+const myPromise2 = new Promise((resolve) => {
+  setTimeout(resolve, 3000, "promesa 2, 3 sec");
+});
+
+// Both resolves. Who is faster?
+Promise.all([myPromise1, myPromise2]).then((promesas) => {
+  console.log("promesas:");
+  console.log(promesas[0]);
+  console.log(promesas[1]);
+});
